@@ -7,10 +7,10 @@ export function UserRow({ user, index }) {
                     {index + 1}
                 </h5>
                 <h5 className='row-item'>
-                    {user.name.first}
+                    {user?.name?.first}
                 </h5>
                 <h5 className='row-item'>
-                    {user.name.last}
+                    {user?.name?.last}
                 </h5>
                 <h5 className='row-item' style={{ color: 'blue', width: '265px' }}>
                     {user.email}

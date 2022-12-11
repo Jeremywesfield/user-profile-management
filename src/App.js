@@ -3,6 +3,8 @@ import { UsersList } from './components/UsersList';
 import { useEffect, useState } from 'react';
 import { getUsers } from './common/getUsers';
 
+const defaultNumberOfUsers = 10;
+
 function App() {
 
   const [users, setUsers] = useState([]);
@@ -10,8 +12,7 @@ function App() {
   useEffect(() => {
     const dataFromStorage = JSON.parse(localStorage.getItem('queriedData'));
     if (!dataFromStorage) {
-        const defaultNumberOfUsers = 10;
-        getUsers(users.length, defaultNumberOfUsers).then(res => setUsers(res));
+        getUsers({ users, numberOfUsersToQuery: defaultNumberOfUsers, setUsers });
     } else {
       setUsers(dataFromStorage);
     }
