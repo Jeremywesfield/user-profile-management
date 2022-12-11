@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import { UsersList } from './components/UsersList';
+import { useEffect, useState } from 'react';
+import { getUsers } from './common/getUsers';
 
 function App() {
+
+  const [users, setUsers] = useState([]);
+  
+  useEffect(() => {
+    const dataFromStorage = JSON.parse(localStorage.getItem('queriedData'));
+    if (!dataFromStorage) {
+        const defaultNumberOfUsers = 10;
+        getUsers(users.length, defaultNumberOfUsers).then(res => setUsers(res));
+    } else {
+      setUsers(dataFromStorage);
+    }
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <UsersList users={users} setUsers={setUsers} />
     </div>
   );
 }
