@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import AppContext from "../../../contex/AppContext";
 
 export function UserRow({ user, index, users, setUsers }) {
 
@@ -8,6 +9,7 @@ export function UserRow({ user, index, users, setUsers }) {
     const [email, setEmail] = useState(user.email);
     const [phone, setPhone] = useState(user.phone);
     const [isDisable, setIsDisabled] = useState({ firstName: true, lastName: true, email: true, phone: true });
+    const appContext = useContext(AppContext);
 
     if(!user.name) {
         return null;
@@ -45,7 +47,7 @@ export function UserRow({ user, index, users, setUsers }) {
         <li>
             <div className="user-row">
                 <Link style={{ textDecoration: 'none' }} to="/userProfile">
-                    <label className='row-item' style={{ width: '70px', color: 'black' }}>
+                    <label onClick={()=>appContext.setUserProfile({ firstName, lastName, phone, email, gender: user.gender })} className='row-item' style={{ width: '70px', color: 'black' }}>
                         {index + 1}
                     </label>
                 </Link>

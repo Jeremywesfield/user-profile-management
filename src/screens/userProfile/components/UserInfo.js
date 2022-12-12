@@ -4,15 +4,12 @@ import femaleSelected from '../../../images/femaleSelected.png';
 import maleNotSelected from '../../../images/maleNotSelected.png';
 import maleSelected from '../../../images/maleSelected.png';
 import googleMapDemo from '../../../images/googleMapDemo.png';
-import { useState } from 'react';
-
-
-const isMale = true;
-const isFemale = false;
-
+import { useState, useContext } from 'react';
+import AppContext from '../../../contex/AppContext';
 
 export function UserInfo() {
-    const [gender, setGender] = useState('');
+    const appContext = useContext(AppContext);
+    const { gender, firstName, lastName, email, phone } = appContext.userProfile;
 
     return (
         <div className='user-info-container'>
@@ -29,7 +26,7 @@ export function UserInfo() {
                         First name
                     </label>
                     <div className='profile-name-output profile-txt-outputs'>
-                        first name goes here
+                        {firstName}
                     </div>
                 </div>
                 <div className='name-container'>
@@ -37,7 +34,7 @@ export function UserInfo() {
                         Last name
                     </label>
                     <div className='profile-name-output profile-txt-outputs'>
-                        last name goes here
+                        {lastName}
                     </div>
                 </div>
             </div>
@@ -46,15 +43,15 @@ export function UserInfo() {
                         Email
                     </label>
                     <div className='profile-email-phone-outputs profile-txt-outputs'>
-                        emailgoes here
+                        {email}
                     </div>
                 </div>
             <div className='name-container'>
                 <label className='profile-label-text'>
-                    phone
+                    Phone
                 </label>
                 <div className='profile-email-phone-outputs profile-txt-outputs'>
-                       phone goes here
+                       {phone}
                 </div>
             </div>
             <div className='name-container'>
@@ -62,8 +59,8 @@ export function UserInfo() {
                     Gender
                 </label>
                 <div>
-                    <img src={maleSelected} alt="male-button" width="90" height="40" />
-                    <img src={femaleNotSelected} alt="female-button" width="100" height="40" style={{marginLeft: '10px'}} />
+                    <img src={gender == 'male' ? maleSelected : maleNotSelected} alt="male-button" width="90" height="40" />
+                    <img src={gender != 'male' ? femaleSelected : femaleNotSelected} alt="female-button" width="100" height="40" style={{marginLeft: '10px'}} />
                 </div>
             </div>
             <div className='location-wrapper'>
@@ -74,7 +71,6 @@ export function UserInfo() {
                     <img src={googleMapDemo} alt="google-map" width="490" height="280" />
                 </div>
             </div>
-            {/* <div style={{ marginTop: '30px', color: 'white' }}>.</div> */}
         </div>
     )
 }
