@@ -3,7 +3,7 @@ import { UsersList } from './screens/usersList/UsersList';
 import { useEffect, useState } from 'react';
 import { getUsers } from './common/getUsers';
 import { UserProfile } from './screens/userProfile/UserProfile';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import AppContext from './contex/AppContext';
 
 const defaultNumberOfUsers = 10;
@@ -25,12 +25,12 @@ function App() {
   return (
     <div className="App">
       <AppContext.Provider value = {{ userProfile: userProfile, setUserProfile: setUserProfile }}>
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route exact path="/" element={<UsersList users={users} setUsers={setUsers} />} />
             <Route path="/userProfile" element={<UserProfile />} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </AppContext.Provider>
     </div>
   );
