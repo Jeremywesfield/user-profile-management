@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <AppContext.Provider value = {{ userProfile: userProfile, setUserProfile: setUserProfile }}>
-        <BrowserRouter>
+        <BrowserRouter basename={"http://Jeremywesfield.github.io/user-profile-management"}>
           <Routes>
             <Route path="/" element={<UsersList users={users} setUsers={setUsers} />} />
             <Route path="/userProfile" element={<UserProfile users={users} setUsers={setUsers} />} />
