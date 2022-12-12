@@ -38,20 +38,22 @@ export function UserInfo() {
                     </div>
                 </div>
             </div>
-            <div className='name-container'>
+            <div className='email-phone-container'>
+                <div className='name-container'>
+                        <label className='profile-label-text'>
+                            Email
+                        </label>
+                        <div className='profile-email-phone-outputs profile-txt-outputs'>
+                            {email}
+                        </div>
+                    </div>
+                <div className='name-container'>
                     <label className='profile-label-text'>
-                        Email
+                        Phone
                     </label>
                     <div className='profile-email-phone-outputs profile-txt-outputs'>
-                        {email}
+                        {phone}
                     </div>
-                </div>
-            <div className='name-container'>
-                <label className='profile-label-text'>
-                    Phone
-                </label>
-                <div className='profile-email-phone-outputs profile-txt-outputs'>
-                       {phone}
                 </div>
             </div>
             <div className='name-container'>
@@ -68,7 +70,7 @@ export function UserInfo() {
                     Location
                 </label>
                 <div  className='location-container'>
-                    <img src={googleMapDemo} alt="google-map" width="490" height="280" />
+                    <img src={googleMapDemo} alt="google-map" className='map-dynamics' />
                 </div>
             </div>
         </div>

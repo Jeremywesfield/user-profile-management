@@ -3,6 +3,11 @@
   justify-content: center;
 }
 
+.calm-graphic {
+  width: 430px; 
+  height: 430px;
+}
+
 .divider{
   width: 90%
 }
@@ -54,6 +59,11 @@
   width: 100%
 }
 
+.map-dynamics {
+  width: 490px; 
+  height: 280px; 
+}
+
 .name-container{
   width: 100%;
   height: 58px;
@@ -71,11 +81,12 @@
 
 .profile-email-phone-outputs{
   width: 486px;
-  height: 58px;
+  height: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background: #FBF1DF;
+  border: 1px solid #D6C9B5;
   border-radius: 10px;
   padding: 10px;
 }
@@ -96,6 +107,11 @@
   background-color: white;
   width: 50%
 }
+
+/* .mobile-container{
+  height: 100%;
+  width: 100%;
+} */
 
 .profile-page-right-half {
   background-color: #FBF1DF;
@@ -156,6 +172,10 @@
   margin-top: 10px;
 }
 
+.sn-hover:hover {
+  cursor: pointer;
+}
+
 .user-info-container {
   height: 100vh;
   display: flex;
@@ -203,4 +223,114 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+
+/* profile-page-container */
+@media (max-width:714px){
+  .email-phone-container {
+    width:100%;
+    display: flex;
+  }
+
+  .profile-page-container {
+   display: flex;
+   flex-direction: column-reverse;
+   width: 714px;
+   align-items: center;
+   height: 1100px
+
+  }
+
+  .profile-page-right-half {
+    display: flex;
+    height: 900px;
+    width: 100%;
+  }
+
+  .profile-page-left-half {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
+
+  .profile-name-output {
+    width: 90%;
+  }
+
+  .profile-email-phone-outputs {
+    width: 90%;
+  }
+
+  .calm-graphic {
+    width: 180px; 
+    height: 180px;
+  }
+
+  .graphic-container {
+    margin-bottom: 90px; 
+  }
+
+  .map-dynamics {
+    width: 100%;
+  }
+}
+
+@media (max-width:375px){
+  .email-phone-container {
+    width:100%;
+    display: flex;
+  }
+
+  .profile-page-container {
+   display: flex;
+   flex-direction: column-reverse;
+   width: 375px;
+   align-items: center;
+   height: 900px
+
+  }
+
+  .profile-page-right-half {
+    display: flex;
+    height: 900px;
+    width: 100%;
+  }
+
+  .profile-page-left-half {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
+
+  .profile-name-output {
+    width: 92%;
+  }
+
+  .profile-email-phone-outputs {
+    width: 92%;
+  }
+
+  .calm-graphic {
+    width: 180px; 
+    height: 180px;
+  }
+
+  .graphic-container {
+    margin-bottom: 90px; 
+  }
+
+  .map-dynamics {
+    width: 100%;
+  }
+
+  .user-name-wrapper {
+    display:flex;
+    flex-direction: column;
+  }
+
+  .email-phone-container {
+    display:flex;
+    flex-direction: column;
+  }
 }

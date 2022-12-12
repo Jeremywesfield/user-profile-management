@@ -47,7 +47,7 @@ export function UserRow({ user, index, users, setUsers }) {
         <li>
             <div className="user-row">
                 <Link style={{ textDecoration: 'none' }} to="/userProfile">
-                    <label onClick={()=>appContext.setUserProfile({ firstName, lastName, phone, email, gender: user.gender })} className='row-item' style={{ width: '70px', color: 'black' }}>
+                    <label onClick={()=>appContext.setUserProfile({ firstName, lastName, phone, email, gender: user.gender })} className='row-item sn-hover' style={{ width: '70px', color: 'black' }}>
                         {index + 1}
                     </label>
                 </Link>
