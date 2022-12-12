@@ -11,7 +11,7 @@ const defaultNumberOfUsers = 10;
 function App() {
 
   const [users, setUsers] = useState([]);
-  const [userProfile, setUserProfile] = useState("helllo world");
+  const [userProfile, setUserProfile] = useState("");
 
   useEffect(() => {
     const dataFromStorage = JSON.parse(localStorage.getItem('queriedData'));
