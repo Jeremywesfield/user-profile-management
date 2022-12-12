@@ -1,7 +1,9 @@
 import './App.css';
-import { UsersList } from './components/UsersList';
+import { UsersList } from './screens/usersList/UsersList';
 import { useEffect, useState } from 'react';
 import { getUsers } from './common/getUsers';
+import { UserProfile } from './screens/userProfile/UserProfile';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const defaultNumberOfUsers = 10;
 
@@ -16,11 +18,16 @@ function App() {
     } else {
       setUsers(dataFromStorage);
     }
-  }, [])
+  }, []);
 
   return (
     <div className="App">
-      <UsersList users={users} setUsers={setUsers} />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<UsersList users={users} setUsers={setUsers} />} />
+          <Route path="/userProfile" element={<UserProfile users={users} setUsers={setUsers} />} />
+        </Routes>
+    </BrowserRouter>
     </div>
   );
 }
